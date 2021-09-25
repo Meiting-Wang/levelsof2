@@ -1,4 +1,4 @@
-# Stata 新命令：levelsof2--加强版的 levelsof
+# Stata 新命令：levelsof2--加强版 levelsof
 
 > 作者：王美庭  
 > Email: wangmeiting92@gmail.com
