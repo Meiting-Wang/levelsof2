@@ -46,7 +46,7 @@ It is worth noting that this command can only be used in version 16.0 or later.
 {marker Options}{title:Options}
 
 {synoptset 20}{...}
-{synopthdr:install options}
+{synopthdr}
 {synoptline}
 {synopt :{opth pre:fix(strings:string)}}Customize the names of local macros and matrix in {bf:r()} and new variables by adding prefix.{p_end}
 {synopt :{opth post:fix(strings:string)}}Customize the names of local macros and matrix in {bf:r()} and new variables by adding postfix.{p_end}
