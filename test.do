@@ -1,10 +1,39 @@
+****** 示例数据构建
+clear all
 cls
-pr drop _all
-sysuse auto.dta, clear
+input year strL name
+	2000 "aa"
+	2001 "bb"
+	2002 "bb"
+	2001 ""
+	2002 ""
+	2003 "dd ee"
+	2004 "dd ee"
+	2000 "hh"
+	2001 "hh"
+	.    "hh"
+end
+l, sep(10)
 
-levelsof2 rep78 //提取变量x的唯一值，并将其储存于新变量以及返回值 local 和 matrix 中
-levelsof2 rep78 foreign //对多个变量进行如上操作
-levelsof2 rep78 foreign, novar //不生成用于储存唯一值的新变量
-levelsof2 rep78 foreign, nomat //不生成用于储存唯一值的返回值 matrix
-levelsof2 rep78 foreign, pre(pre_) post(_post) //通过添加前后缀的形式自定义生成新变量以及返回值 local 和 matrix 的名称（在原有变量名的基础上添加前后缀）
-return list //展示返回值
+
+****** 命令使用
+*- 数值型变量
+levelsof2 year //在Stata界面上报告变量 year 的系列唯一值(同levelsof year)
+levelsof2 year if _n<=4 //同上，但额外使用了 if 语句
+levelsof2 year in 7/10 //同上，但额外使用了 in 语句
+levelsof2 year, missing //同上，但额外也将缺漏值看做唯一值的一种
+levelsof2 year, local(year_uni) //同上，但额外将系列唯一值也储存在展元 year_uni 中
+levelsof2 year, unique(year_uni) //同上，但额外将系列唯一值储存在新变量以及返回值 r() 的矩阵中（命名均为year_uni）
+levelsof2 year, unique(year_uni) frequency(year_freq) //同上，但额外将系列唯一值所对应的频数储存在新变量以及返回值 r() 的矩阵中（命名均为year_freq）
+return list //查看返回值
+
+
+*- 字符型变量
+levelsof2 name
+levelsof2 name if _n<=4
+levelsof2 name in 7/10
+levelsof2 name, missing
+levelsof2 name, local(name_uni)
+levelsof2 name, unique(name_uni) //同上，但由于Stata不支持字符型的矩阵，所以这里返回值r()中没有系列唯一值所对应的矩阵，下同
+levelsof2 name, unique(name_uni) frequency(name_freq)
+return list
