@@ -19,8 +19,8 @@
 {p 4 4 2}
 {help levelsof2##Description:Description}{break}
 {help levelsof2##Options:Options}{break}
-{help levelsof2##Stored:Stored results}{break}
 {help levelsof2##Examples:Examples}{break}
+{help levelsof2##Stored:Stored results}{break}
 {help levelsof2##Author:Author}{break}
 {help levelsof2##Also_see:Also see}{break}
 
@@ -51,25 +51,6 @@ It is worth noting that this command can only be used in version 16.0 or later.
 {synoptline}
 
 
-{* -----------------------------Stored results------------------------------------ *}{...}
-{marker Stored}{title:Stored results}
-
-{synoptset 22 tabbed}{...}
-{synopthdr:return values}
-{synoptline}
-{syntab:Scalars}
-{synopt :{bf:r(unique_num)}}Number of unique values{p_end}
-{synopt :{bf:r(total_num)}}Number of observations{p_end}
-
-{syntab:Macros}
-{synopt :{bf:r(levels)}}List of unique values{p_end}
-
-{syntab:Matrices}
-{synopt :{bf:r(`unique')}}Column vector of unique values(only exists when the specified variable is numeric){p_end}
-{synopt :{bf:r(`frequency')}}Column vector of frequencies corresponding to unique values{p_end}
-{synoptline}
-
-
 {* -----------------------------Examples------------------------------------ *}{...}
 {marker Examples}{title:Examples}
 
@@ -91,6 +72,25 @@ It is worth noting that this command can only be used in version 16.0 or later.
 {p 8 10 2}. {stata levelsof2 make, unique(make_uni)}{p_end}
 {p 8 10 2}. {stata levelsof2 make, unique(make_uni) frequency(make_freq)}{p_end}
 {p 8 10 2}. {stata return list}{p_end}
+
+
+{* -----------------------------Stored results------------------------------------ *}{...}
+{marker Stored}{title:Stored results}
+
+{synoptset 22 tabbed}{...}
+{synopthdr:return values}
+{synoptline}
+{syntab:Scalars}
+{synopt :{bf:r(unique_num)}}Number of unique values{p_end}
+{synopt :{bf:r(total_num)}}Number of observations{p_end}
+
+{syntab:Macros}
+{synopt :{bf:r(levels)}}List of unique values{p_end}
+
+{syntab:Matrices}
+{synopt :{bf:r(`unique')}}Column vector of unique values(only exists when the specified variable is numeric){p_end}
+{synopt :{bf:r(`frequency')}}Column vector of frequencies corresponding to unique values{p_end}
+{synoptline}
 
 
 {* -----------------------------Author------------------------------------ *}{...}
