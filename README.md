@@ -5,7 +5,7 @@
 
 ## 一、引言
 
-为了保留命令`levelsof`的特色以及进一步增加其他功能，我们几乎重写了这个命令（语法与选项与之前写的版本大不一样）。如果读者还是比较习惯之前的版本，则可以在该命令的 GitHub 项目中找到早期的 release 进行下载并手动安装，对应的旧推文参见[Stata 新命令：levelsof2--加强版 levelsof](https://mp.weixin.qq.com/s/99YEiViH9fSAa6cXKYESNg)。重写的命令具有以下特点：
+为了保留命令`levelsof`的特色以及进一步增加其他功能，我几乎重写了这个命令（语法与选项与之前写的版本大不一样）。如果读者还是比较习惯之前的版本，则可以在该命令的 GitHub 项目中找到早期的 release 进行下载并手动安装，对应的旧推文参见[Stata 新命令：levelsof2--加强版 levelsof](https://mp.weixin.qq.com/s/99YEiViH9fSAa6cXKYESNg)。重写的命令具有以下特点：
 
 - 保留了命令`levelsof`的核心内容（去除了那些平常几乎不会用到的内容），读者可以像使用`levelsof`命令一样使用`levelsof2`命令
 - `levelsof2`能提取指定变量的系列唯一值，然后可将其分别储存在返回值 **r()** 的 local、matrices 中以及数据集的新变量中
@@ -51,10 +51,10 @@ levelsof2 varname [if] [in] [, unique(newvarname) frequency(newvarname) local(ma
 
 > 对于该命令，还有以下要注意的点：
 >
-> - `unique(newvarname)`和`frequency(newvarname)`选项同时也会将系列唯一值及其频数储存在返回值 **r()** 的 matrices 中（与设定的变量同名）。一个例外是，对于字符型变量，其无法在返回值 **r()** 中生成系列唯一值的矩阵，原因在于 Stata 不支持字符型矩阵（当然，Mata 是支持的，但其是属于另外一个体系了）。
-> - 无论怎么样，系列唯一值都会储存在返回值 **r()** 的局部展元`r(levels)`中（同`levelsof`命令）
-> - 无论怎么样，命令都会将指定变量的系列唯一值展示在 Stata 界面上（同`levelsof`命令）
-> - 唯一值的储存顺序为升序（同`levelsof`命令）
+> - `unique(newvarname)`和`frequency(newvarname)`选项同时也会将系列唯一值及其频数储存在返回值 **r()** 的 matrices 中（与设定的变量同名）。一个例外是，对于字符型变量，其无法在返回值 **r()** 中生成用于储存系列唯一值的矩阵，原因在于 Stata 不支持字符型矩阵（当然，Mata 是支持的，但其是属于另外一个体系了）。
+> - 无论怎么样，系列唯一值都会储存在返回值 **r()** 的局部展元`r(levels)`中（同`levelsof`）
+> - 无论怎么样，命令都会将指定变量的系列唯一值展示在 Stata 界面上（同`levelsof`）
+> - 唯一值的储存顺序为升序（同`levelsof`）
 > - 选项都可以缩写，详情可以安装命令后`help levelsof2`
 
 ## 四、实例
